@@ -37,8 +37,14 @@
         <button @click="print_output">打印</button>
       </div>
       <div class="row" id="print-section">
-        <div v-for="row in selected_rows">
-          {{ row[output_column_index] }}
+        <table>
+          <tr v-for="row in selected_rows">
+            <td>{{ row[output_column_index] }}</td>
+            <td><input class="ki" type="text" style="width: 50px;">g</td>
+          </tr>
+        </table>
+        <div >
+          
         </div>
       </div>
     </div>
@@ -114,11 +120,11 @@ function print_output () {
 </script>
 
 <style scoped>
-table {
+table.data {
   border-collapse: collapse; /* This property prevents double borders between cells */
   border: 1px solid black;   /* Adding a 1px solid black border to the table */
 }
-th, td {
+table.data th, table.data td {
   border: 1px solid black;   /* Adding a 1px solid black border to table header and data cells */
   padding: 4px;              /* Adding some padding to cells for better spacing */
 }
@@ -133,6 +139,10 @@ table.data tr:hover {
 }
 .box {
   margin-right: 24px;
+}
+input.ki {
+  border: 0;
+  text-align: right;
 }
 </style>
 
